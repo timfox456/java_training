@@ -385,10 +385,14 @@ Now, let's run the updated application and verify that data is being persisted i
         - **Password:** `password`
             
     - Click "Connect".
+
+![](../../assets/lab2-h2-console-login.png)
         
     - You should now see the H2 database browser. On the left, you'll see a `PRODUCT` table. Click on it, then click "Run" at the top to execute `SELECT * FROM PRODUCT;`. You should see the three preloaded products. This confirms your application is connected to and writing to the H2 database!
         
     - Keep the H2 Console open as you perform API tests.
+
+![](../../assets/lab2-h2-console-query.png)
         
 
 #### Testing with Thunder Client (VS Code)
