@@ -51,6 +51,8 @@ Spring Initializr is the fastest way to get a new Spring Boot project up and run
     - `Spring Web` (This is crucial for building REST APIs)
         
 4. **Generate and Download:** Click the "GENERATE" button at the bottom. This will download a `.zip` file to your computer (e.g., `product-api.zip`).
+
+![Screenshot](../../assets/lab1-spring-initializer.png)
     
 5. **Extract the Project:**
     
