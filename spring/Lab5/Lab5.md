@@ -26,6 +26,16 @@
 
 Currently, your API directly exposes and accepts the `Product` JPA entity. While simple for basic cases, this is not ideal. DTOs allow you to control exactly what data is sent over the wire, protect your internal model, and cater to different API use cases.
 
+
+For this to work, you need to update your pom.xml to add a new dependency:
+
+```xml
+   <dependency>
+       <groupId>org.springframework.boot</groupId>
+       <artifactId>spring-boot-starter-validation</artifactId>
+   </dependency>
+
+```
 We'll create two DTOs: `ProductRequest` (for creating/updating) and `ProductResponse` (for returning product data).
 
 1. **Create a new package:**
