@@ -56,7 +56,20 @@ First, let's add the Actuator dependency to your project.
     ```
     
 3. **Save `pom.xml`:** Save the file (`Ctrl+S` / `Cmd+S`). VS Code will automatically detect the changes and re-import the Maven project, downloading the new dependencies. Wait for this to complete.
-    
+
+4. Add the following to the bottom off `resources/application.properties`
+
+```properties
+
+# Actuator
+management.endpoints.web.exposure.include=info,health,metrics
+info.app.name=Product Management API
+info.app.description=A Spring Boot application for managing products
+info.app.version=1.0.0
+info.contact.email=support@example.com
+info.build.timestamp=${maven.build.timestamp} # This will be populated by Maven if configured
+
+```    
 
 ---
 
