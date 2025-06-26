@@ -216,6 +216,8 @@ Use Thunder Client (the lightning bolt icon in the Activity Bar) to send request
     - **Send:** Click "Send".
         
     - **Expected Response:** `401 Unauthorized` status. The response body might be empty or contain a simple "Unauthorized" message. This shows the endpoint is now protected.
+
+![](../../assets/lab4-thunder-request-auth.png)
         
     
     **b) Test 2: GET All Products (Authorized Access - User Role)**
