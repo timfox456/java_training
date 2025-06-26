@@ -289,7 +289,7 @@ We'll create two DTOs: `ProductRequest` (for creating/updating) and `ProductR
     
     _Self-correction tip:_ Add `import com.example.productapi.dto.ProductRequest;` and `import com.example.productapi.dto.ProductResponse;`. Also, `import java.util.stream.Collectors;` for the `stream().map().collect()` operations.
     
-5. **Update `ProductService.java` (Minor Change):**
+5. **Update `Product.java` (Minor Change):**
     
     - The `ProductService` methods still operate on the `Product` entity, which is correct. No signature changes are needed here, as the conversion happens in the controller.
         
@@ -330,6 +330,10 @@ We'll create two DTOs: `ProductRequest` (for creating/updating) and `ProductR
     ```
     
     _Self-correction tip:_ Make sure you remove the `@NotBlank`, `@Size`, and `@DecimalMin` annotations from the `Product`entity and their corresponding imports.
+
+    Here's what it should look like at the end:
+
+
     
 
 ---
