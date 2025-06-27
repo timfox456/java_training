@@ -210,6 +210,10 @@ Lab 1: Git Fundamentals - Your First Repository Workflow
     - **Expected Output:** Messages indicating the push was successful (e.g., `To github.com/...`, `[new branch] main -> main`).
         
     - **Verification:** Go to your GitHub repository in your web browser. You should now see `hello.txt` and the updated `README.md` with your commit message.
+
+    - You can now look at your repo on github
+
+![](../assets/git-lab1-repo.png)
         
 2. **Alternative: Push Changes to GitHub (VS Code):**
     

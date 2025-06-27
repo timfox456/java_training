@@ -141,6 +141,8 @@
 1. **Create a Pull Request on GitHub:**
     
     - On your GitHub repository page, after pushing your feature branch, you'll often see a banner like "Compare & pull request" – click this.
+
+![](../assets/git-lab2-create-pr.png)
         
     - If not, go to the **"Pull requests" tab** on your repo page.
         
@@ -157,6 +159,7 @@
     - Add a description (e.g., `Adds a new "Project Details" section to the README as part of feature X.`).
         
     - Click **"Create pull request"**.
+![](../assets/git-lab2-open-pr.png)
         
 2. **Review and Merge the Pull Request (on GitHub):**
     
@@ -169,6 +172,7 @@
     - Click **"Confirm merge"**.
         
     - **Expected Output:** The PR status will change to "Merged," and GitHub will offer to "Delete branch." Click this button to clean up the remote feature branch.
+![](../assets/git-lab2-merge-pr.png)
         
 3. **Switch to `dev` Branch Locally and Pull Changes (Command Line):**
     
