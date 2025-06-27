@@ -19,9 +19,8 @@
         
     - Run:
         
-        Bash
         
-        ```
+        ```bash
         git checkout main
         git pull origin main
         ```
@@ -32,9 +31,8 @@
     
     - From `main`, create a new branch named `dev`:
         
-        Bash
         
-        ```
+        ```bash
         git branch dev
         git checkout dev
         # OR in one go:
@@ -47,9 +45,8 @@
     
     - The `dev` branch only exists locally. Push it to create it on GitHub:
         
-        Bash
         
-        ```
+        ```bash
         git push -u origin dev
         ```
         
@@ -63,9 +60,8 @@
         
     - Create a new feature branch (e.g., for adding a new project description):
         
-        Bash
         
-        ```
+        ```bash
         git checkout -b feature/add-project-description
         ```
         
@@ -115,9 +111,8 @@
         
     - Push your feature branch and its commits to GitHub:
         
-        Bash
         
-        ```
+        ```bash
         git push origin feature/add-project-description
         ```
         
@@ -181,17 +176,14 @@
         
     - Switch to your local `dev` branch:
         
-        Bash
         
-        ```
+        ```bash
         git checkout dev
         ```
         
     - Pull the changes that were just merged into `dev` on GitHub:
         
-        Bash
-        
-        ```
+        ```bash
         git pull origin dev
         ```
         
@@ -215,9 +207,8 @@
         
     - Run:
         
-        Bash
         
-        ```
+        ```bash
         git branch -d feature/add-project-description
         ```
         

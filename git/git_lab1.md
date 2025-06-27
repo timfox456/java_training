@@ -62,9 +62,8 @@ Lab 1: Git Fundamentals - Your First Repository Workflow
         
     - Execute the `git clone` command, pasting the URL you copied:
         
-        Bash
         
-        ```
+        ```bash
         git clone https://github.com/your-username/my-first-git-repo.git
         ```
         
@@ -72,9 +71,8 @@ Lab 1: Git Fundamentals - Your First Repository Workflow
         
     - Navigate into the newly cloned directory:
         
-        Bash
         
-        ```
+        ```bash
         cd my-first-git-repo
         ```
         
@@ -82,9 +80,8 @@ Lab 1: Git Fundamentals - Your First Repository Workflow
     
     - From your terminal (while inside the `my-first-git-repo` directory), type:
         
-        Bash
         
-        ```
+        ```bash
         code .
         ```
         
@@ -130,9 +127,8 @@ Lab 1: Git Fundamentals - Your First Repository Workflow
         
     - Run:
         
-        Bash
         
-        ```
+        ```bash
         git status
         ```
         
@@ -142,9 +138,8 @@ Lab 1: Git Fundamentals - Your First Repository Workflow
     
     - Stage both files for the next commit:
         
-        Bash
         
-        ```
+        ```bash
         git add hello.txt README.md
         # OR to stage all modified/untracked files:
         # git add .
@@ -158,9 +153,8 @@ Lab 1: Git Fundamentals - Your First Repository Workflow
     
     - Commit the staged changes with a message:
         
-        Bash
         
-        ```
+        ```bash
         git commit -m "Add hello.txt and update README"
         ```
         
@@ -208,9 +202,8 @@ Lab 1: Git Fundamentals - Your First Repository Workflow
         
     - Push your committed changes to the `main` branch on GitHub:
         
-        Bash
         
-        ```
+        ```bash
         git push origin main
         ```
         
@@ -250,9 +243,8 @@ Lab 1: Git Fundamentals - Your First Repository Workflow
     
     - Pull the changes from the remote `main` branch:
         
-        Bash
         
-        ```
+        ```bash
         git pull origin main
         ```
         
