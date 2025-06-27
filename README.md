@@ -22,6 +22,15 @@ To get started with the Spring Boot labs, please navigate to the dedicated READM
 
 ➡️ **[Go to Spring Boot Labs Overview](./spring/README.md)**
 
+## Git Labs
+
+To ensure you have a solid foundation in collaborative development, this repository includes hands-on labs for **Git and GitHub**. These exercises cover essential version control mechanics, from basic commits and pushes to advanced branching strategies and Pull Request workflows.
+
+To begin your Git learning journey, please navigate to the dedicated README:
+
+➡️ **[Go to Git Labs Overview](./git/README.md)**
+
+
 ## General Prerequisites
 
 To effectively follow the labs and training materials in this repository, you should have:
