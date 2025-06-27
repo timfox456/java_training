@@ -2,6 +2,7 @@ package com.example.productapi;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod; // Added for HttpMethod.OPTIONS
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
@@ -11,7 +12,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
-import static org.springframework.security.config.Customizer.withDefaults; // For httpBasic()
+import static org.springframework.security.config.Customizer.withDefaults; // For httpBasic() and cors()
 
 @Configuration // Marks this class as a Spring configuration class
 @EnableWebSecurity // Enables Spring Security's web security features
@@ -24,22 +25,38 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
+            // 1. Enable CORS support within Spring Security. This tells Spring Security
+            //    to look for a CorsConfigurationSource (provided by @CrossOrigin or a WebMvcConfigurer bean)
+            //    and apply those rules. This must come before CSRF.
+            .cors(withDefaults()) // <--- CRUCIAL FOR CORS INTEGRATION
+
+            // 2. Disable CSRF (Cross-Site Request Forgery) protection for simplicity in this API lab.
+            //    In a real-world web application (especially with browsers), CSRF protection is crucial.
+            //    For stateless REST APIs, it's often disabled if other security measures are in place.
+            .csrf(csrf -> csrf.disable())
+
+            // 3. Define authorization rules for HTTP requests
             .authorizeHttpRequests(authorize -> authorize
-                // Require authentication for all requests to /api/products and its sub-paths
-                .requestMatchers("/api/products/**").authenticated()
-                // Allow access to H2 Console without authentication (for development)
+                // 3a. IMPORTANT: Allow all OPTIONS requests (CORS preflight) without authentication.
+                //    This rule MUST come BEFORE any more restrictive rules for the same path.
+                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // <--- CRUCIAL FOR PREFLIGHT
+
+                // 3b. Allow access to H2 Console without authentication (for development)
                 .requestMatchers("/h2-console/**").permitAll()
-                // Any other request requires authentication (can be changed to .permitAll() if desired)
+
+                // 3c. Require authentication for all requests to /api/products and its sub-paths
+                //     If you want to test the product API without authentication temporarily,
+                //     you can change this to .permitAll() and revert it later.
+                .requestMatchers("/api/products/**").authenticated() // Or .hasRole("USER") etc.
+
+                // 3d. Any other request also requires authentication by default
                 .anyRequest().authenticated()
             )
-            // Use HTTP Basic authentication for secured endpoints
+            // 4. Use HTTP Basic authentication for secured endpoints
             .httpBasic(withDefaults())
-            // Disable CSRF (Cross-Site Request Forgery) protection for simplicity in this API lab.
-            // In a real-world web application (especially with browsers), CSRF protection is crucial.
-            // For stateless REST APIs, it's often disabled if other security measures are in place.
-            .csrf(csrf -> csrf.disable())
-            // Configure header options, specifically to allow H2 Console in a frame
-            .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.sameOrigin())); // Allow H2 Console to work in an iframe
+
+            // 5. Configure header options, specifically to allow H2 Console in an iframe
+            .headers(headers -> headers.frameOptions(frameOptions -> frameOptions.sameOrigin()));
 
         return http.build();
     }
